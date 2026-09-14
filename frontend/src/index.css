@@ -1,0 +1,357 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@layer base {
+  :root {
+    --bg-main: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --accent-emerald: #059669;
+    --accent-teal: #0d9488;
+    --accent-amber: #d97706;
+    --accent-rose: #e11d48;
+    --accent-indigo: #4f46e5;
+  }
+
+  /* Light theme card overrides via data-theme attribute */
+  /* Matches all variants: bg-[#18261a], /70, /80, /90, etc. */
+  [data-theme="light"] [class*="bg-[#18261a]"],
+  [data-theme="light"] .bg-\[\#18261a\]\/80,
+  [data-theme="light"] .bg-\[\#18261a\]\/70,
+  [data-theme="light"] .bg-\[\#18261a\] {
+    background-color: #9e7f6b !important;
+  }
+
+  [data-theme="light"] [class*="bg-[#18261a]"]:hover,
+  [data-theme="light"] .hover\:bg-\[\#18261a\]:hover {
+    background-color: #8d6f5c !important;
+  }
+
+  /* Card borders in light theme */
+  [data-theme="light"] [class*="bg-[#18261a]"],
+  [data-theme="light"] .border-emerald-800\/40 {
+    border-color: rgba(220, 185, 160, 0.45) !important;
+  }
+
+  /* Sub-wells / inner containers inside cards (e.g. bg-white/5, bg-black/20) */
+  [data-theme="light"] [class*="bg-[#18261a]"] .bg-white\/5,
+  [data-theme="light"] [class*="bg-[#18261a]"] .bg-white\/10,
+  [data-theme="light"] [class*="bg-[#18261a]"] .bg-black\/20,
+  [data-theme="light"] [class*="bg-[#18261a]"] .bg-black\/40 {
+    background-color: rgba(0, 0, 0, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* ------------------------------------------------------------- */
+  /* HIGH-CONTRAST CARD TYPOGRAPHY — 100% VISIBLE ON MOCHA CARDS   */
+  /* ------------------------------------------------------------- */
+
+  /* 1. Headings, Titles & Primary Values */
+  [data-theme="light"] [class*="bg-[#18261a]"] .text-white,
+  [data-theme="light"] [class*="bg-[#18261a]"] h1,
+  [data-theme="light"] [class*="bg-[#18261a]"] h2,
+  [data-theme="light"] [class*="bg-[#18261a]"] h3,
+  [data-theme="light"] [class*="bg-[#18261a]"] h4,
+  [data-theme="light"] [class*="bg-[#18261a]"] h5,
+  [data-theme="light"] [class*="bg-[#18261a]"] h6,
+  [data-theme="light"] [class*="bg-[#18261a]"] strong {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(35, 20, 10, 0.35);
+  }
+
+  /* 2. All Secondary Text, Descriptions, Subtitles & Metadata */
+  /* Targets all translucent green/slate/white classes: e.g. text-emerald-200/50, text-emerald-300/40, text-white/60, etc. */
+  [data-theme="light"] [class*="bg-[#18261a]"] [class*="text-emerald-200"],
+  [data-theme="light"] [class*="bg-[#18261a]"] [class*="text-emerald-300"],
+  [data-theme="light"] [class*="bg-[#18261a]"] [class*="text-emerald-400/"],
+  [data-theme="light"] [class*="bg-[#18261a]"] [class*="text-white/"],
+  [data-theme="light"] [class*="bg-[#18261a]"] [class*="text-slate-400"],
+  [data-theme="light"] [class*="bg-[#18261a]"] [class*="text-slate-500"],
+  [data-theme="light"] [class*="bg-[#18261a]"] [class*="text-gray-400"],
+  [data-theme="light"] [class*="bg-[#18261a]"] p {
+    color: #fff4e5 !important; /* Crisp light warm ivory - high contrast & crystal clear */
+    opacity: 1 !important;
+  }
+
+  /* 3. Table Headers & Uppercase Section Tags */
+  [data-theme="light"] [class*="bg-[#18261a]"] th,
+  [data-theme="light"] [class*="bg-[#18261a]"] [class*="uppercase"] {
+    color: #ffedd5 !important;
+    opacity: 1 !important;
+  }
+
+  /* 4. Monospace Codes & IDs */
+  [data-theme="light"] [class*="bg-[#18261a]"] .font-mono,
+  [data-theme="light"] [class*="bg-[#18261a]"] [class*="font-mono"] {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  /* 5. Table rows, borders & dividers */
+  [data-theme="light"] [class*="bg-[#18261a]"] .border-white\/10,
+  [data-theme="light"] [class*="bg-[#18261a]"] .border-white\/5,
+  [data-theme="light"] [class*="bg-[#18261a]"] .divide-white\/5 > * {
+    border-color: rgba(255, 255, 255, 0.18) !important;
+  }
+
+  [data-theme="light"] [class*="bg-[#18261a]"] tr:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* 6. Accent text colors that need to stay bright & vibrant on cards */
+  [data-theme="light"] [class*="bg-[#18261a]"] .text-emerald-400 {
+    color: #6ee7b7 !important; /* Luminous mint green */
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+  }
+
+  [data-theme="light"] [class*="bg-[#18261a]"] .text-rose-400,
+  [data-theme="light"] [class*="bg-[#18261a]"] .text-rose-300 {
+    color: #ff6b81 !important; /* Bright vivid crimson */
+    text-shadow: 0 0 8px rgba(255, 51, 75, 0.4);
+  }
+
+  [data-theme="light"] [class*="bg-[#18261a]"] .text-amber-400,
+  [data-theme="light"] [class*="bg-[#18261a]"] .text-amber-300 {
+    color: #fde047 !important; /* Bright sunshine amber */
+  }
+
+  [data-theme="light"] [class*="bg-[#18261a]"] .text-indigo-400 {
+    color: #c7d2fe !important;
+  }
+
+  [data-theme="light"] [class*="bg-[#18261a]"] .text-teal-400 {
+    color: #5eead4 !important;
+  }
+
+  [data-theme="light"] [class*="bg-[#18261a]"] .text-blue-400 {
+    color: #93c5fd !important;
+  }
+
+  /* 7. Simulation Demo Controller bar in light mode */
+  [data-theme="light"] .bg-\[\#0b160e\]\/95 {
+    background-color: #eddfc5 !important;
+    border-color: #c9a87a !important;
+    color: #2b1d14 !important;
+  }
+
+  [data-theme="light"] .bg-\[\#0b160e\]\/95 .text-white {
+    color: #24160e !important;
+  }
+
+  [data-theme="light"] .bg-\[\#0b160e\]\/95 .text-emerald-200\/70 {
+    color: #5c4433 !important;
+  }
+
+  /* HIGH-INTENSITY GREEN (Vibrant, saturated emerald) */
+  .text-emerald-400,
+  [data-theme="light"] .text-emerald-400,
+  [data-theme="light"] .text-emerald-500 {
+    color: #10b981 !important;
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+  }
+
+  [data-theme="light"] .bg-emerald-500 {
+    background-color: #10b981 !important;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.6) !important;
+  }
+
+  [data-theme="light"] .bg-emerald-900\/60,
+  [data-theme="light"] .bg-emerald-900\/50 {
+    background-color: rgba(16, 185, 129, 0.28) !important;
+    border-color: #10b981 !important;
+    color: #d1fae5 !important;
+  }
+
+  /* HIGH-INTENSITY RED (Vivid, punchy scarlet/crimson) */
+  .text-rose-400,
+  .text-rose-300,
+  [data-theme="light"] .text-rose-400,
+  [data-theme="light"] .text-rose-300 {
+    color: #ff334b !important;
+    text-shadow: 0 0 12px rgba(255, 51, 75, 0.4);
+  }
+
+  [data-theme="light"] .bg-rose-500,
+  .bg-rose-500 {
+    background-color: #ff2a44 !important;
+    box-shadow: 0 0 14px rgba(255, 42, 68, 0.65) !important;
+  }
+
+  [data-theme="light"] .bg-rose-900\/60,
+  [data-theme="light"] .bg-rose-900\/50,
+  [data-theme="light"] .bg-rose-900\/30 {
+    background-color: rgba(255, 42, 68, 0.3) !important;
+    border-color: #ff334b !important;
+    color: #ffe4e6 !important;
+  }
+
+  [data-theme="light"] .border-rose-700\/50,
+  [data-theme="light"] .border-rose-700\/40,
+  [data-theme="light"] .border-rose-800\/40 {
+    border-color: #ff334b !important;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border: none;
+    text-align: left;
+  }
+}
+
+/* Custom 3D & Elevation Effects */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-3d:hover {
+  transform: translateY(-4px) rotateX(2deg) rotateY(-1deg);
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+}
+
+.card-layer-3d {
+  transform: translateZ(20px);
+}
+
+.isometric-container {
+  transform: rotateX(55deg) rotateZ(-40deg);
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.isometric-container:hover {
+  transform: rotateX(50deg) rotateZ(-35deg);
+}
+
+.iso-rack {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.iso-rack:hover {
+  transform: translateZ(12px);
+}
+
+/* Soft White Neumorphic & Glass Shadows */
+.white-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.white-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+.white-card-hover {
+  transition: all 0.25s ease-in-out;
+}
+
+.white-card-hover:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 20px -3px rgba(15, 23, 42, 0.06), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Badge 3D depth */
+.badge-3d {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Animation Keyframes */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite ease-in-out;
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-bg {
+  background: linear-gradient(90deg, #f1f5f9 25%, #f8fafc 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Scrollbar polish */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Leaflet container fixes */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  border-radius: 0.75rem;
+  font-family: inherit;
+}
