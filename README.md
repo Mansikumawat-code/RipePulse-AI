@@ -37,6 +37,36 @@ VITE_WS_URL=wss://ripepulse-ai.onrender.com/ws
 
 Produce losses are often caused by delayed transport, poor inventory visibility, route disruption, short remaining shelf life, quantity mismatch, and disconnected warehouse and receiving workflows. RipePulse AI gives each stakeholder the operational view and actions needed to respond earlier.
 
+## Key Features & Innovation
+
+### Key Features
+
+- **AI-Based Shelf-Life Prediction** - Predicts usable life for each produce batch.
+- **Freshness-Aware Risk Scoring** - Classifies batches as Low, Medium, High, or Critical risk.
+- **Intelligent Dispatch Planning** - Prioritizes vulnerable batches beyond traditional FIFO.
+- **Route and ETA Monitoring** - Compares transit ETA with remaining shelf life.
+- **Destination Ranking and Rerouting** - Identifies feasible alternate destinations when risk arises.
+- **Role-Based Supply Dashboards** - Coordinates decisions across warehouse, supply chain, receiver, and admin teams.
+
+### Innovation
+
+> RipePulse AI shifts produce logistics from reactive FIFO movement to predictive decision-making.
+
+- Combines batch intelligence, telemetry, AI prediction, and route analysis.
+- Detects the critical mismatch between remaining shelf life and delivery ETA.
+- Supports proactive intervention before spoilage occurs.
+- Integrates AI recommendations with human approval and operational execution.
+
+### Uniqueness
+
+> Freshness, not just first-in-first-out.
+
+- Goes beyond traditional static inventory tracking.
+- Treats every produce batch as an individual risk profile.
+- Connects warehouse, transport, and destination operations in one decision loop.
+- Uses AI-assisted recommendations with human-in-the-loop control.
+- Focuses on preventing waste before it becomes unavoidable.
+
 ## Role-Based Dashboards
 
 ### Warehouse Manager
