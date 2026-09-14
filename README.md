@@ -1,8 +1,8 @@
-# RipePulse AI - HarvestIQ
+# RipePulse AI
 
 ## Predict. Prioritize. Prevent Produce Waste.
 
-HarvestIQ is an AI-enabled produce supply-chain operations platform. It connects warehouse inventory, produce-risk prediction, dispatch planning, route feasibility, shipment tracking, rerouting, destination receiving, alerts, and audit logging in one role-based application.
+RipePulse AI is an AI-enabled produce supply-chain operations platform. It connects warehouse inventory, produce-risk prediction, dispatch planning, route feasibility, shipment tracking, rerouting, destination receiving, alerts, and audit logging in one role-based application.
 
 The platform is designed around a complete operational workflow:
 
@@ -35,7 +35,7 @@ VITE_WS_URL=wss://ripepulse-ai.onrender.com/ws
 
 ## What It Solves
 
-Produce losses are often caused by delayed transport, poor inventory visibility, route disruption, short remaining shelf life, quantity mismatch, and disconnected warehouse and receiving workflows. HarvestIQ gives each stakeholder the operational view and actions needed to respond earlier.
+Produce losses are often caused by delayed transport, poor inventory visibility, route disruption, short remaining shelf life, quantity mismatch, and disconnected warehouse and receiving workflows. RipePulse AI gives each stakeholder the operational view and actions needed to respond earlier.
 
 ## Role-Based Dashboards
 
