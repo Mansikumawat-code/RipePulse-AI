@@ -14,9 +14,9 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_BASE_URL
-        value: https://harvestiq-backend.onrender.com/api
+        value: https://ripepulse-ai.onrender.com/api
       - key: VITE_WS_URL
-        value: wss://harvestiq-backend.onrender.com/ws
+        value: wss://ripepulse-ai.onrender.com/ws
     routes:
       - type: rewrite
         source: /*
